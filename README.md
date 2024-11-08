@@ -1,4 +1,4 @@
-Homework 1 for the subject DAS
-Gorazd Shosheski id.221073
-Andrej Stevanoski id.221060
-Andrej Sharkoski id.221214
+Homework 1 for the subject DAS\n
+Gorazd Shosheski id.221073\n
+Andrej Stevanoski id.221060\n
+Andrej Sharkoski id.221214\n
