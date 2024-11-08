@@ -1,6 +1,5 @@
 from datetime import timedelta
 import time
-
 from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select, WebDriverWait
@@ -29,13 +28,12 @@ def fill_missing_data(driver, issuer_code, last_date):
         driver.find_element(By.CSS_SELECTOR, "input[onclick='return btnClick();']").click()
 
         try:
-            # Wait for the results table to appear, but give up after 10 seconds
-            WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "resultsTable")))
+            WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.ID, "resultsTable")))
         except TimeoutException:
             print(f"Timeout waiting for table for issuer {issuer_code}. Skipping.")
             current_start_date += timedelta(days=365)
             time.sleep(1)
-            continue  # Skip this iteration if no table is found
+            continue
 
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         table = soup.find("table", {"id": "resultsTable"})
